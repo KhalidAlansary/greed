@@ -1,3 +1,39 @@
+#set document(title: [CharityConnect Project Report])
+
+#align(center)[
+  #v(0.8cm)
+  #image("assets/asufe_logo.png", width: 3.2cm)
+  #v(0.8cm)
+  #text(size: 26pt, weight: "bold")[CharityConnect]
+  #v(0.3cm)
+  #text(size: 18pt, weight: "semibold")[Project Report]
+  #v(1.5cm)
+  #text(size: 15pt)[Ain Shams University]
+  #v(0.4cm)
+  #text(size: 13pt)[CSE334s - Database Systems]
+  #v(0.2cm)
+  #text(size: 13pt)[Spring 2026]
+  #v(1.5cm)
+  #text(size: 14pt, weight: "semibold")[Team Members]
+]
+
+#align(center)[
+  #table(
+    columns: (2fr, 1fr),
+    align: (left, center),
+    [*Name*], [*ID*],
+    [Khalid Ayman Alansary], [2100259],
+    [Salma Hamed Shaaban], [2100636],
+    [Omar Abdelgaber Elsayed], [2101048],
+    [Marwan Osama Salama], [2100769],
+    [Omar Ahmed Abd El-Kader], [2200706],
+    [Akram Emad El-Din Ahmed], [2101512],
+    [Shrouk Gamil Aboud], [2201086],
+  )
+]
+
+#pagebreak()
+
 = CharityConnect Project Report
 
 == Project Theme
