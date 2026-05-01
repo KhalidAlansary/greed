@@ -1,0 +1,69 @@
+name: .NET Desktop
+
+on:
+  push:
+    branches: ["master"]
+    tags: ["v*"]
+  pull_request:
+    branches: ["master"]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+
+    env:
+      Solution_Name: greed.slnx
+      Project_Path: greed.csproj
+      Test_Project_Path: greed.Tests/greed.Tests.csproj
+      Publish_Directory: publish
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Install .NET
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Restore
+        run: dotnet restore "${{ env.Solution_Name }}"
+
+      - name: Build
+        run: dotnet build "${{ env.Solution_Name }}" --configuration ${{ matrix.configuration }} --no-restore
+
+      - name: Execute unit tests
+        if: ${{ hashFiles(env.Test_Project_Path) != '' }}
+        run: dotnet test "${{ env.Test_Project_Path }}" --configuration ${{ matrix.configuration }}
+
+      - name: Skip unit tests
+        if: ${{ hashFiles(env.Test_Project_Path) == '' }}
+        run: Write-Host "No test project found at $env:Test_Project_Path."
+
+      - name: Publish standalone executable
+        if: ${{ matrix.configuration == 'Release' }}
+        run: dotnet publish "${{ env.Project_Path }}" --configuration Release --runtime win-x64 --self-contained true -p:PublishSingleFile=true -p:PublishReadyToRun=true -o "${{ env.Publish_Directory }}"
+
+      - name: Upload build artifact
+        if: ${{ matrix.configuration == 'Release' }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: greed-win-x64
+          path: ${{ env.Publish_Directory }}
+
+      - name: Zip release package
+        if: ${{ matrix.configuration == 'Release' && startsWith(github.ref, 'refs/tags/v') }}
+        run: Compress-Archive -Path "${{ env.Publish_Directory }}\*" -DestinationPath "greed-win-x64.zip"
+
+      - name: Create GitHub Release
+        if: ${{ matrix.configuration == 'Release' && startsWith(github.ref, 'refs/tags/v') }}
+        uses: softprops/action-gh-release@v2
+        with:
+          files: greed-win-x64.zip
