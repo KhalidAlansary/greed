@@ -31,31 +31,9 @@ The management forms retrieve records from SQL Server and display them in data g
 
 == Navigation Flow
 
-The user starts at the Main Dashboard, chooses one of the management options, completes the required database work, then uses Back to Dashboard to return.
+The user starts at the Main Dashboard. The dashboard contains one button for each management area: Manage Events, Process Donations, Assist Beneficiaries, Volunteer Hub, and Manage Staff.
 
-The navigation diagram is stored at `docs/diagrams/form-navigation.mmd`.
-
-```mermaid
-flowchart TD
-    Dashboard[Main Dashboard]
-    Events[Event Management]
-    Donations[Donation Management]
-    Beneficiaries[Beneficiary Management]
-    Volunteers[Volunteer Management]
-    Employees[Employee Management]
-
-    Dashboard -->|Manage Events| Events
-    Dashboard -->|Process Donations| Donations
-    Dashboard -->|Assist Beneficiaries| Beneficiaries
-    Dashboard -->|Volunteer Hub| Volunteers
-    Dashboard -->|Manage Staff| Employees
-
-    Events -->|Back to Dashboard| Dashboard
-    Donations -->|Back to Dashboard| Dashboard
-    Beneficiaries -->|Back to Dashboard| Dashboard
-    Volunteers -->|Back to Dashboard| Dashboard
-    Employees -->|Back to Dashboard| Dashboard
-```
+When the user clicks one of these buttons, the dashboard hides and opens the selected management form as a dialog. Each management form has a Back to Dashboard button. Clicking that button closes the current form, which returns control to the original dashboard and shows it again. This keeps navigation simple because every feature starts from and returns to the same central dashboard.
 
 == Assignment Coverage
 
@@ -71,5 +49,5 @@ flowchart TD
   [Update operation], [Complete], [Update buttons modify selected records.],
   [Delete operation], [Complete], [Delete buttons remove records by primary key.],
   [SQL script deliverable], [Complete], [`src/greed/Database/charity_db.sql`.],
-  [Documentation deliverable], [Complete], [`docs/report.typ` and `docs/diagrams/form-navigation.mmd`.],
+  [Documentation deliverable], [Complete], [`docs/report.typ`.],
 )
