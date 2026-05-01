@@ -33,10 +33,7 @@ namespace greed
 
         private void back_dashboard_Click(object sender, EventArgs e)
         {
-            MainForm mySecondForm = new MainForm();
-            this.Hide();
-            mySecondForm.ShowDialog();
-            this.Show();
+            Close();
         }
 
         private void Manage_Events_Load_1(object sender, EventArgs e) { }
