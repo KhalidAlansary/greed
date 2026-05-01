@@ -3,14 +3,14 @@ using System.Windows.Forms;
 
 namespace greed
 {
-    public partial class main_form : Form
+    public partial class MainForm : Form
     {
-        public main_form()
+        public MainForm()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
 
         }

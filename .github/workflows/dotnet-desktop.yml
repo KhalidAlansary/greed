@@ -20,8 +20,8 @@ jobs:
 
     env:
       Solution_Name: greed.slnx
-      Project_Path: greed.csproj
-      Test_Project_Path: greed.Tests/greed.Tests.csproj
+      Project_Path: src/greed/greed.csproj
+      Test_Project_Path: tests/greed.Tests/greed.Tests.csproj
       Publish_Directory: publish
 
     steps:

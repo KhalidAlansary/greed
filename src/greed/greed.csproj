@@ -1,0 +1,60 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Manage_Events.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Manage_Beneficiaries.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Manage_Donations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Manage_Employees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Manage_Volunteers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Forms\Manage_Events.Designer.cs">
+      <DependentUpon>Manage_Events.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Forms\Manage_Beneficiaries.Designer.cs">
+      <DependentUpon>Manage_Beneficiaries.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Forms\Manage_Donations.Designer.cs">
+      <DependentUpon>Manage_Donations.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Forms\Manage_Employees.Designer.cs">
+      <DependentUpon>Manage_Employees.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Forms\Manage_Volunteers.Designer.cs">
+      <DependentUpon>Manage_Volunteers.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Update="Forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Forms\Manage_Events.resx">
+      <DependentUpon>Manage_Events.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

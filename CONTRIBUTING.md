@@ -28,7 +28,7 @@ dotnet build .\greed.slnx
 ## Run
 
 ```powershell
-dotnet run --project .\greed.csproj
+dotnet run --project .\src\greed\greed.csproj
 ```
 
 ## Database
@@ -43,7 +43,7 @@ Create and seed the database with:
 
 ```powershell
 sqlcmd -S ".\SQLEXPRESS" -E -C -Q "IF DB_ID(N'project') IS NULL CREATE DATABASE [project];"
-sqlcmd -S ".\SQLEXPRESS" -E -C -d project -i .\charity_db.sql
+sqlcmd -S ".\SQLEXPRESS" -E -C -d project -i .\src\greed\Database\charity_db.sql
 ```
 
 ## Before Submitting Changes

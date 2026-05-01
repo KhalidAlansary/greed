@@ -49,7 +49,7 @@ From the repository root:
 
 ```powershell
 sqlcmd -S ".\SQLEXPRESS" -E -C -Q "IF DB_ID(N'project') IS NULL CREATE DATABASE [project];"
-sqlcmd -S ".\SQLEXPRESS" -E -C -d project -i .\charity_db.sql
+sqlcmd -S ".\SQLEXPRESS" -E -C -d project -i .\src\greed\Database\charity_db.sql
 ```
 
 The app connection string should point to this named instance:
@@ -61,7 +61,7 @@ Data Source=.\SQLEXPRESS;Initial Catalog=project;Integrated Security=True;
 ## Run The App
 
 ```powershell
-dotnet run --project .\greed.csproj
+dotnet run --project .\src\greed\greed.csproj
 ```
 
 ## Troubleshooting
