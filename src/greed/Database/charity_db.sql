@@ -256,7 +256,8 @@ INSERT INTO department_location (department_ID, location) VALUES
 -- 13. Event_Monitors (Satisfying the exact prompt constraints)
 INSERT INTO Event_Monitors (E_ID, Event_ID) VALUES
 (101, 1), -- Employee 101 monitors (and also supervises)
-(103, 2); -- Employee 103 monitors (but does not supervise)
+(103, 2), -- Employee 103 monitors (but does not supervise)
+(104, 3);
 
 -- 14. Event_Volunteers
 INSERT INTO Event_Volunteers (V_national_ID, Event_ID) VALUES
