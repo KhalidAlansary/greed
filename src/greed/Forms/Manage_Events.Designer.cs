@@ -1,15 +1,9 @@
-﻿namespace greed
+namespace DB_phase2
 {
     partial class Manage_Events
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
@@ -22,10 +16,7 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
+     
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
@@ -56,8 +47,26 @@
             this.btn_add = new System.Windows.Forms.Button();
             this.btn_update = new System.Windows.Forms.Button();
             this.btn_delete = new System.Windows.Forms.Button();
+            this.labelActivitiesTitle = new System.Windows.Forms.Label();
+            this.dgv_Activities = new System.Windows.Forms.DataGridView();
+            this.colActName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colActEventId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colActStart = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colActEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Event_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBoxActivities = new System.Windows.Forms.GroupBox();
+            this.labelActName = new System.Windows.Forms.Label();
+            this.text_act_name = new System.Windows.Forms.TextBox();
+            this.labelActStart = new System.Windows.Forms.Label();
+            this.dtp_act_start = new System.Windows.Forms.DateTimePicker();
+            this.labelActEnd = new System.Windows.Forms.Label();
+            this.dtp_act_end = new System.Windows.Forms.DateTimePicker();
+            this.btn_add_act = new System.Windows.Forms.Button();
+            this.btn_delete_act = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Eve)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Activities)).BeginInit();
+            this.groupBoxActivities.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -84,8 +93,7 @@
             // 
             this.dgv_Eve.AllowUserToAddRows = false;
             this.dgv_Eve.AllowUserToDeleteRows = false;
-            this.dgv_Eve.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgv_Eve.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_Eve.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_Eve.ColumnHeadersHeight = 50;
@@ -103,7 +111,7 @@
             this.dgv_Eve.ReadOnly = true;
             this.dgv_Eve.RowHeadersWidth = 51;
             this.dgv_Eve.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_Eve.Size = new System.Drawing.Size(1059, 284);
+            this.dgv_Eve.Size = new System.Drawing.Size(1059, 230);
             this.dgv_Eve.TabIndex = 2;
             this.dgv_Eve.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Eve_CellContentClick);
             // 
@@ -168,7 +176,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
@@ -187,7 +195,7 @@
             this.groupBox1.Controls.Add(this.btn_add);
             this.groupBox1.Controls.Add(this.btn_update);
             this.groupBox1.Controls.Add(this.btn_delete);
-            this.groupBox1.Location = new System.Drawing.Point(12, 336);
+            this.groupBox1.Location = new System.Drawing.Point(18, 282);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1059, 180);
             this.groupBox1.TabIndex = 3;
@@ -338,9 +346,174 @@
             this.btn_delete.Text = "Delete";
             this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
+            // labelActivitiesTitle
+            // 
+            this.labelActivitiesTitle.AutoSize = true;
+            this.labelActivitiesTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.labelActivitiesTitle.Location = new System.Drawing.Point(12, 475);
+            this.labelActivitiesTitle.Name = "labelActivitiesTitle";
+            this.labelActivitiesTitle.Size = new System.Drawing.Size(101, 28);
+            this.labelActivitiesTitle.TabIndex = 6;
+            this.labelActivitiesTitle.Text = "Activities";
+            // 
+            // dgv_Activities
+            // 
+            this.dgv_Activities.AllowUserToAddRows = false;
+            this.dgv_Activities.AllowUserToDeleteRows = false;
+            this.dgv_Activities.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_Activities.ColumnHeadersHeight = 29;
+            this.dgv_Activities.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colActName,
+            this.colActEventId,
+            this.colActStart,
+            this.colActEnd,
+            this.Event_ID});
+            this.dgv_Activities.Location = new System.Drawing.Point(18, 510);
+            this.dgv_Activities.MultiSelect = false;
+            this.dgv_Activities.Name = "dgv_Activities";
+            this.dgv_Activities.ReadOnly = true;
+            this.dgv_Activities.RowHeadersWidth = 51;
+            this.dgv_Activities.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_Activities.Size = new System.Drawing.Size(580, 220);
+            this.dgv_Activities.TabIndex = 4;
+            this.dgv_Activities.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Activities_CellContentClick);
+            // 
+            // colActName
+            // 
+            this.colActName.DataPropertyName = "activity_name";
+            this.colActName.HeaderText = "Activity Name";
+            this.colActName.MinimumWidth = 6;
+            this.colActName.Name = "colActName";
+            this.colActName.ReadOnly = true;
+            // 
+            // colActEventId
+            // 
+            this.colActEventId.DataPropertyName = "Event_ID";
+            this.colActEventId.HeaderText = "Event ID";
+            this.colActEventId.MinimumWidth = 6;
+            this.colActEventId.Name = "colActEventId";
+            this.colActEventId.ReadOnly = true;
+            this.colActEventId.Visible = false;
+            // 
+            // colActStart
+            // 
+            this.colActStart.DataPropertyName = "start_date";
+            this.colActStart.HeaderText = "Start Date";
+            this.colActStart.MinimumWidth = 6;
+            this.colActStart.Name = "colActStart";
+            this.colActStart.ReadOnly = true;
+            // 
+            // colActEnd
+            // 
+            this.colActEnd.DataPropertyName = "end_date";
+            this.colActEnd.HeaderText = "End Date";
+            this.colActEnd.MinimumWidth = 6;
+            this.colActEnd.Name = "colActEnd";
+            this.colActEnd.ReadOnly = true;
+            // 
+            // Event_ID
+            // 
+            this.Event_ID.DataPropertyName = "Event_ID";
+            this.Event_ID.HeaderText = "Event ID";
+            this.Event_ID.MinimumWidth = 6;
+            this.Event_ID.Name = "Event_ID";
+            this.Event_ID.ReadOnly = true;
+            // 
+            // groupBoxActivities
+            // 
+            this.groupBoxActivities.Controls.Add(this.labelActName);
+            this.groupBoxActivities.Controls.Add(this.text_act_name);
+            this.groupBoxActivities.Controls.Add(this.labelActStart);
+            this.groupBoxActivities.Controls.Add(this.dtp_act_start);
+            this.groupBoxActivities.Controls.Add(this.labelActEnd);
+            this.groupBoxActivities.Controls.Add(this.dtp_act_end);
+            this.groupBoxActivities.Controls.Add(this.btn_add_act);
+            this.groupBoxActivities.Controls.Add(this.btn_delete_act);
+            this.groupBoxActivities.Location = new System.Drawing.Point(620, 510);
+            this.groupBoxActivities.Name = "groupBoxActivities";
+            this.groupBoxActivities.Size = new System.Drawing.Size(457, 220);
+            this.groupBoxActivities.TabIndex = 5;
+            this.groupBoxActivities.TabStop = false;
+            this.groupBoxActivities.Text = "Manage Activities";
+            // 
+            // labelActName
+            // 
+            this.labelActName.AutoSize = true;
+            this.labelActName.Location = new System.Drawing.Point(20, 40);
+            this.labelActName.Name = "labelActName";
+            this.labelActName.Size = new System.Drawing.Size(92, 16);
+            this.labelActName.TabIndex = 0;
+            this.labelActName.Text = "Activity Name:";
+            // 
+            // text_act_name
+            // 
+            this.text_act_name.Location = new System.Drawing.Point(120, 37);
+            this.text_act_name.Name = "text_act_name";
+            this.text_act_name.Size = new System.Drawing.Size(220, 22);
+            this.text_act_name.TabIndex = 1;
+            // 
+            // labelActStart
+            // 
+            this.labelActStart.AutoSize = true;
+            this.labelActStart.Location = new System.Drawing.Point(20, 80);
+            this.labelActStart.Name = "labelActStart";
+            this.labelActStart.Size = new System.Drawing.Size(69, 16);
+            this.labelActStart.TabIndex = 2;
+            this.labelActStart.Text = "Start Date:";
+            // 
+            // dtp_act_start
+            // 
+            this.dtp_act_start.CustomFormat = "yyyy-MM-dd HH:mm";
+            this.dtp_act_start.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_act_start.Location = new System.Drawing.Point(120, 77);
+            this.dtp_act_start.Name = "dtp_act_start";
+            this.dtp_act_start.Size = new System.Drawing.Size(220, 22);
+            this.dtp_act_start.TabIndex = 3;
+            // 
+            // labelActEnd
+            // 
+            this.labelActEnd.AutoSize = true;
+            this.labelActEnd.Location = new System.Drawing.Point(20, 120);
+            this.labelActEnd.Name = "labelActEnd";
+            this.labelActEnd.Size = new System.Drawing.Size(66, 16);
+            this.labelActEnd.TabIndex = 4;
+            this.labelActEnd.Text = "End Date:";
+            // 
+            // dtp_act_end
+            // 
+            this.dtp_act_end.CustomFormat = "yyyy-MM-dd HH:mm";
+            this.dtp_act_end.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_act_end.Location = new System.Drawing.Point(120, 117);
+            this.dtp_act_end.Name = "dtp_act_end";
+            this.dtp_act_end.Size = new System.Drawing.Size(220, 22);
+            this.dtp_act_end.TabIndex = 5;
+            // 
+            // btn_add_act
+            // 
+            this.btn_add_act.Location = new System.Drawing.Point(120, 165);
+            this.btn_add_act.Name = "btn_add_act";
+            this.btn_add_act.Size = new System.Drawing.Size(100, 30);
+            this.btn_add_act.TabIndex = 6;
+            this.btn_add_act.Text = "Add Activity";
+            this.btn_add_act.UseVisualStyleBackColor = true;
+            this.btn_add_act.Click += new System.EventHandler(this.btn_add_act_Click);
+            // 
+            // btn_delete_act
+            // 
+            this.btn_delete_act.Location = new System.Drawing.Point(240, 165);
+            this.btn_delete_act.Name = "btn_delete_act";
+            this.btn_delete_act.Size = new System.Drawing.Size(100, 30);
+            this.btn_delete_act.TabIndex = 7;
+            this.btn_delete_act.Text = "Delete Activity";
+            this.btn_delete_act.UseVisualStyleBackColor = true;
+            this.btn_delete_act.Click += new System.EventHandler(this.btn_delete_act_Click);
+            // 
             // Manage_Events
             // 
-            this.ClientSize = new System.Drawing.Size(1083, 531);
+            this.ClientSize = new System.Drawing.Size(1095, 750);
+            this.Controls.Add(this.groupBoxActivities);
+            this.Controls.Add(this.dgv_Activities);
+            this.Controls.Add(this.labelActivitiesTitle);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.back_dashboard);
             this.Controls.Add(this.dgv_Eve);
@@ -351,6 +524,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Eve)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Activities)).EndInit();
+            this.groupBoxActivities.ResumeLayout(false);
+            this.groupBoxActivities.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -359,7 +535,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgv_Eve;  
+        private System.Windows.Forms.DataGridView dgv_Eve;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -373,7 +549,6 @@
         private System.Windows.Forms.TextBox text_description;
         private System.Windows.Forms.TextBox text_name;
         private System.Windows.Forms.TextBox text_ID;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox text_balance;
         private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.Button btn_update;
@@ -387,5 +562,22 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colFinish;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn colBalance;
+
+        private System.Windows.Forms.Label labelActivitiesTitle;
+        private System.Windows.Forms.DataGridView dgv_Activities;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colActName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colActEventId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colActStart;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colActEnd;
+        private System.Windows.Forms.GroupBox groupBoxActivities;
+        private System.Windows.Forms.Label labelActName;
+        private System.Windows.Forms.Label labelActStart;
+        private System.Windows.Forms.Label labelActEnd;
+        private System.Windows.Forms.TextBox text_act_name;
+        private System.Windows.Forms.DateTimePicker dtp_act_start;
+        private System.Windows.Forms.DateTimePicker dtp_act_end;
+        private System.Windows.Forms.Button btn_add_act;
+        private System.Windows.Forms.Button btn_delete_act;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Event_ID;
     }
 }
