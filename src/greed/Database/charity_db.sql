@@ -77,7 +77,7 @@ CREATE TABLE Organizer (
     O_lname         VARCHAR(50),
     O_mobile_number VARCHAR(20),
     E_ID            INT UNIQUE,
-    FOREIGN KEY (E_ID) REFERENCES Employee(E_ID) ON DELETE CASCADE
+    FOREIGN KEY (E_ID) REFERENCES Employee(E_ID)
 );
 
 CREATE TABLE Volunteer (
@@ -94,8 +94,9 @@ CREATE TABLE Activity (
     Event_ID        INT NOT NULL,
     start_date      DATETIME NOT NULL,
     end_date        DATETIME NOT NULL,
-    PRIMARY KEY (activity_name, Event_ID),
-    FOREIGN KEY (Event_ID) REFERENCES Event(Event_ID) ON DELETE CASCADE
+    FOREIGN KEY (Event_ID)
+        REFERENCES Event(Event_ID)
+        ON DELETE CASCADE
 );
 
 -- Composite attributes
@@ -104,7 +105,7 @@ CREATE TABLE department_location (
     department_ID   INT NOT NULL,
     location        VARCHAR(200) NOT NULL,
     PRIMARY KEY (department_ID, location),
-    FOREIGN KEY (department_ID) REFERENCES Department(department_ID) ON DELETE CASCADE
+    FOREIGN KEY (department_ID) REFERENCES Department(department_ID)
 );
 
 -- Relationship tables
@@ -113,7 +114,7 @@ CREATE TABLE Event_Monitors (
     E_ID      INT NOT NULL,
     Event_ID  INT NOT NULL,
     PRIMARY KEY (E_ID, Event_ID),
-    FOREIGN KEY (E_ID) REFERENCES Employee(E_ID) ON DELETE CASCADE,
+    FOREIGN KEY (E_ID) REFERENCES Employee(E_ID),
     FOREIGN KEY (Event_ID) REFERENCES Event(Event_ID) ON DELETE CASCADE
 );
 
@@ -121,7 +122,7 @@ CREATE TABLE Event_Volunteers (
     V_national_ID VARCHAR(20) NOT NULL,
     Event_ID      INT NOT NULL,
     PRIMARY KEY (V_national_ID, Event_ID),
-    FOREIGN KEY (V_national_ID) REFERENCES Volunteer(V_national_ID) ON DELETE CASCADE,
+    FOREIGN KEY (V_national_ID) REFERENCES Volunteer(V_national_ID),
     FOREIGN KEY (Event_ID) REFERENCES Event(Event_ID) ON DELETE CASCADE
 );
 
@@ -129,7 +130,7 @@ CREATE TABLE Event_Organizers (
     O_ID       INT NOT NULL,
     Event_ID   INT NOT NULL,
     PRIMARY KEY (O_ID, Event_ID),
-    FOREIGN KEY (O_ID) REFERENCES Organizer(O_ID) ON DELETE CASCADE,
+    FOREIGN KEY (O_ID) REFERENCES Organizer(O_ID),
     FOREIGN KEY (Event_ID) REFERENCES Event(Event_ID) ON DELETE CASCADE
 );
 
@@ -138,7 +139,7 @@ CREATE TABLE Person_Needs (
     Item_ID         INT NOT NULL,
     Quantity        INT DEFAULT 1,
     PRIMARY KEY (P_national_ID, Item_ID),
-    FOREIGN KEY (P_national_ID) REFERENCES Person_in_need(P_national_ID) ON DELETE CASCADE,
+    FOREIGN KEY (P_national_ID) REFERENCES Person_in_need(P_national_ID),
     FOREIGN KEY (Item_ID) REFERENCES Item(Item_ID)
 );
 
@@ -147,7 +148,7 @@ CREATE TABLE Donation_Items (
     Item_ID    INT NOT NULL,
     Quantity    INT DEFAULT 1,
     PRIMARY KEY (donation_ID, Item_ID),
-    FOREIGN KEY (donation_ID) REFERENCES Donation(donation_ID) ON DELETE CASCADE,
+    FOREIGN KEY (donation_ID) REFERENCES Donation(donation_ID),
     FOREIGN KEY (Item_ID) REFERENCES Item(Item_ID)
 );
 
@@ -155,15 +156,15 @@ CREATE TABLE Donation_recording (
     donation_ID   INT NOT NULL,
     E_ID      INT NOT NULL,
     PRIMARY KEY (donation_ID, E_ID),
-    FOREIGN KEY (donation_ID) REFERENCES Donation(donation_ID) ON DELETE CASCADE,
-    FOREIGN KEY (E_ID) REFERENCES Employee(E_ID) ON DELETE CASCADE
+    FOREIGN KEY (donation_ID) REFERENCES Donation(donation_ID),
+    FOREIGN KEY (E_ID) REFERENCES Employee(E_ID)
 );
 
 CREATE TABLE Event_Beneficiaries (
     P_national_ID      VARCHAR(20) NOT NULL,
     Event_ID           INT NOT NULL,
     PRIMARY KEY (P_national_ID, Event_ID),
-    FOREIGN KEY (P_national_ID) REFERENCES Person_in_need(P_national_ID) ON DELETE CASCADE,
+    FOREIGN KEY (P_national_ID) REFERENCES Person_in_need(P_national_ID),
     FOREIGN KEY (Event_ID) REFERENCES Event(Event_ID) ON DELETE CASCADE
 );
 
@@ -172,7 +173,7 @@ CREATE TABLE Event_Funding_Sources (
     Bank_ID       INT NOT NULL,
     PRIMARY KEY (Event_ID, Bank_ID),
     FOREIGN KEY (Event_ID) REFERENCES Event(Event_ID) ON DELETE CASCADE,
-    FOREIGN KEY (Bank_ID) REFERENCES Donation_bank(Bank_ID) ON DELETE CASCADE
+    FOREIGN KEY (Bank_ID) REFERENCES Donation_bank(Bank_ID) 
 );
 
 
@@ -256,8 +257,7 @@ INSERT INTO department_location (department_ID, location) VALUES
 -- 13. Event_Monitors (Satisfying the exact prompt constraints)
 INSERT INTO Event_Monitors (E_ID, Event_ID) VALUES
 (101, 1), -- Employee 101 monitors (and also supervises)
-(103, 2), -- Employee 103 monitors (but does not supervise)
-(104, 3);
+(103, 2); -- Employee 103 monitors (but does not supervise)
 
 -- 14. Event_Volunteers
 INSERT INTO Event_Volunteers (V_national_ID, Event_ID) VALUES
@@ -301,24 +301,3 @@ INSERT INTO Event_Funding_Sources (Event_ID, Bank_ID) VALUES
 (1, 1),
 (2, 2),
 (3, 3);
-
-SELECT * FROM Department;
-SELECT * FROM Employee;
-SELECT * FROM Donor;
-SELECT * FROM Event;
-SELECT * FROM Item;
-SELECT * FROM Donation;
-SELECT * FROM Donation_bank;
-SELECT * FROM Person_in_need;
-SELECT * FROM Organizer;
-SELECT * FROM Volunteer;
-SELECT * FROM Activity;
-SELECT * FROM department_location;
-SELECT * FROM Event_Monitors;
-SELECT * FROM Event_Volunteers;
-SELECT * FROM Event_Organizers;
-SELECT * FROM Person_Needs;
-SELECT * FROM Donation_Items;
-SELECT * FROM Donation_recording;
-SELECT * FROM Event_Beneficiaries;
-SELECT * FROM Event_Funding_Sources;
