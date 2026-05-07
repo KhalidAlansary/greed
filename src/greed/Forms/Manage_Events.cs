@@ -110,7 +110,7 @@ namespace DB_phase2
                 con.Close();
                 return;
             }
-            string checkStr = "SELECT COUNT(1) FROM Event WHERE Event_ID = @Event_ID";
+            string checkStr = "SELECT COUNT(*) FROM Event WHERE Event_ID = @Event_ID";
             SqlCommand checkCmd = new SqlCommand(checkStr, con);
             checkCmd.Parameters.Add(new SqlParameter("@Event_ID", id_event));
 
@@ -174,7 +174,7 @@ namespace DB_phase2
                 con.Close();
                 return;
             }
-            string checkStr = "SELECT COUNT(1) FROM Event WHERE Event_ID = @Event_ID";
+            string checkStr = "SELECT COUNT(*) FROM Event WHERE Event_ID = @Event_ID";
             SqlCommand checkCmd = new SqlCommand(checkStr, con);
             checkCmd.Parameters.Add(new SqlParameter("@Event_ID", id_event));
 
@@ -214,7 +214,7 @@ namespace DB_phase2
                 con.Close();
                 return;
             }
-            string checkStr = "SELECT COUNT(1) FROM Event WHERE Event_ID = @Event_ID";
+            string checkStr = "SELECT COUNT(*) FROM Event WHERE Event_ID = @Event_ID";
             SqlCommand checkCmd = new SqlCommand(checkStr, con);
             checkCmd.Parameters.Add(new SqlParameter("@Event_ID", id_event));
 
@@ -275,7 +275,7 @@ namespace DB_phase2
                 con.Close();
                 return;
             }
-            string checkStr = "SELECT COUNT(1) FROM Event WHERE Event_ID = @Event_ID";
+            string checkStr = "SELECT COUNT(*) FROM Event WHERE Event_ID = @Event_ID";
             SqlCommand checkCmd = new SqlCommand(checkStr, con);
             checkCmd.Parameters.Add(new SqlParameter("@Event_ID", id_event));
 
